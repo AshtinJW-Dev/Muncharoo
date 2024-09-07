@@ -1,7 +1,7 @@
 import React from 'react'
 import RecipeRow from '../components/RecipeRow';
 
-function CollectionSection() {
+function CategoriesSection() {
     const recipes = [
         {
             title: "Spaghetti Carbonara",
@@ -18,12 +18,11 @@ function CollectionSection() {
             description: "A rich and moist chocolate cake topped with creamy chocolate frosting.",
             imageUrl: "https://via.placeholder.com/300"
         }
-    ];
-  return (
-      <div>CollectionSection
-      
+    ]; 
+    return (
+      <div className='container'><h2>Categories</h2>
       <RecipeRow recipes={recipes} /></div >
   )
 }
 
-export default CollectionSection
+export default CategoriesSection

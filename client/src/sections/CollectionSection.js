@@ -1,7 +1,7 @@
 import React from 'react'
 import RecipeRow from '../components/RecipeRow';
 
-function FreshRecipeSection() {
+function CollectionSection() {
     const recipes = [
         {
             title: "Spaghetti Carbonara",
@@ -19,11 +19,11 @@ function FreshRecipeSection() {
             imageUrl: "https://via.placeholder.com/300"
         }
     ];
-    return (
-        <div>FreshRecipeSection
-            <RecipeRow recipes={recipes} /></div>
-
-    )
+  return (
+      <div className='container'><h2>Collections</h2>
+      
+      <RecipeRow recipes={recipes} /></div >
+  )
 }
 
-export default FreshRecipeSection
+export default CollectionSection
