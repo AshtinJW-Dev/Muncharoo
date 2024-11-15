@@ -1,22 +1,26 @@
+// components/RecipeCard.js
+import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "../src/components/ui/card";
+import Image from 'next/image';
 
-import React from 'react';
-import Image from "next/image"
-
-
-const RecipeCard = ({ title, description, imageUrl }) => {
-    return (
-        <div className="col-md-4 mb-4">
-            <div className="card">
-            <Image  src={imageUrl} className="card-img-top" alt={title} width={300}
-                        height={300}/>
-                <div className="card-body">
-                    <h5 className="card-title">{title}</h5>
-                    <p className="card-text">{description}</p>
-                    
-                </div>
-            </div>
-        </div>
-    );
-};
-
-export default RecipeCard;
+export default function RecipeCard({ recipe }) {
+  return (
+    <Card className="w-full max-w-md shadow-lg hover:shadow-xl transition-shadow">
+      <CardHeader className="relative">
+        <Image
+          src={recipe.image_url}
+          alt={recipe.title}
+          width={500}
+          height={300}
+          className="rounded-t-md object-cover"
+          style={{ width: '100%', height: 'auto' }}
+        />
+      </CardHeader>
+      <CardContent className="p-4">
+        <CardTitle className="text-xl font-semibold">{recipe.title}</CardTitle>
+        <CardDescription className="text-sm text-gray-600 mt-2">
+          {recipe.description}
+        </CardDescription>
+      </CardContent>
+    </Card>
+  );
+}

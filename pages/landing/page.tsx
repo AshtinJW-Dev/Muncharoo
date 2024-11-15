@@ -2,17 +2,15 @@
 
 import React from 'react';
 import HeroSection from '../sections/HeroSection';
-import FreshRecipeSection from '../sections/FreshRecipeSection';
-import CategoriesSection from '../sections/CategoriesSection';
-import CollectionSection from '../sections/CollectionSection';
+
+import AllRecipesSection from '../sections/AllRecipesSection'
 
 export default function LandingPage() {
   return (
     <>
       <HeroSection />
-      <FreshRecipeSection />
-      <CategoriesSection />
-      <CollectionSection />
+      <AllRecipesSection />
+      
     </>
   );
 }
