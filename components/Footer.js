@@ -1,88 +1,81 @@
-import React from 'react';
+import React from "react";
+import Image from "next/image";
+import { Input } from "@/components/ui/input";
+import { Button } from "@/components/ui/button";
 import egg from "../public/assets/images/favicon.png";
-import { Input } from "@/components/ui/input"
-import { Button } from "@/components/ui/button"
-import Image from "next/image"
-
 
 const Footer = () => {
-    return (
-        <footer className="bg-gray-100 text-center text-lg-start">
-            <div className="container mx-auto py-8">
-                <div className="flex flex-col md:flex-row items-center justify-between space-y-4 md:space-y-0 text-center">
-                    <div className="md:w-1/4">
-                        <div className="p-4 bg-gray-100">
-                        <Image src={egg} className='w-24 h-24 bg-red-500 rounded-full' alt="Logo" width={500}
-                        height={300} />
-                        </div>
-                    </div>
+  return (
+    <footer className="bg-gray-100 text-center text-lg-start py-8">
+      <div className="container mx-auto">
+        <div className="flex flex-col md:flex-row items-center justify-between space-y-4 md:space-y-0 text-center">
+          {/* Logo Section */}
+          <div className="md:w-1/4 flex justify-center">
+            <Image
+              src={egg}
+              alt="Muncharoo Logo"
+              width={96}
+              height={96}
+              className="rounded-full"
+              priority
+            />
+          </div>
 
-                    <div className="md:w-2/4">
-                        <div className="p-4">
-                            <form className="flex space-x-2" role="search">
-                                <Input 
-                                    type="search"
-                                    placeholder="Search"
-                                    aria-label="Search"
-                                    className="flex-grow"
-                                />
-                                <Button variant="outline">Search</Button>
-                            </form>
-                        </div>
-                    </div>
+          {/* Search Bar */}
+          <div className="md:w-2/4">
+            <form className="flex space-x-2" role="search">
+              <Input type="search" placeholder="Search" aria-label="Search" className="flex-grow" />
+              <Button variant="outline">Search</Button>
+            </form>
+          </div>
 
-                    <div className="md:w-1/4">
-                        <div className="p-4 flex space-x-4 justify-center">
-                            <a href="#!" className="text-gray-600 hover:text-gray-900">
-                                <i className="bi bi-instagram text-2xl"></i>
-                            </a>
-                            <a href="#!" className="text-gray-600 hover:text-gray-900">
-                                <i className="bi bi-facebook text-2xl"></i>
-                            </a>
-                            <a href="#!" className="text-gray-600 hover:text-gray-900">
-                                <i className="bi bi-pinterest text-2xl"></i>
-                            </a>
-                            <a href="#!" className="text-gray-600 hover:text-gray-900">
-                                <i className="bi bi-youtube text-2xl"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
+          {/* Social Links */}
+          <div className="md:w-1/4 flex justify-center space-x-4">
+            {["instagram", "facebook", "pinterest", "youtube"].map((platform) => (
+              <a key={platform} href="#!" className="text-gray-600 hover:text-gray-900 text-2xl">
+                <i className={`bi bi-${platform}`}></i>
+              </a>
+            ))}
+          </div>
+        </div>
 
-                <div className="flex flex-col md:flex-row justify-between mt-8">
-                    <div className="md:w-1/2 mb-4 md:mb-0">
-                        <h5 className="text-xl font-bold">Never Miss a Recipe!</h5>
-                        <p>Sign up for the Muncharoo Newsletter</p>
-                    </div>
+        {/* Additional Links */}
+        <div className="flex flex-col md:flex-row justify-between mt-8 text-center md:text-left">
+          {/* Newsletter Signup */}
+          <div className="md:w-1/2 mb-4 md:mb-0">
+            <h5 className="text-xl font-bold">Never Miss a Recipe!</h5>
+            <p>Sign up for the Muncharoo Newsletter</p>
+          </div>
 
-                    <div className="md:w-1/4">
-                        <h5 className="text-xl font-bold">Links</h5>
-                        <ul className="list-none space-y-2">
-                            <li><a href="#!" className="text-gray-600 hover:underline">Link 1</a></li>
-                            <li><a href="#!" className="text-gray-600 hover:underline">Link 2</a></li>
-                            <li><a href="#!" className="text-gray-600 hover:underline">Link 3</a></li>
-                            <li><a href="#!" className="text-gray-600 hover:underline">Link 4</a></li>
-                        </ul>
-                    </div>
-
-                    <div className="md:w-1/4">
-                        <h5 className="text-xl font-bold">More Links</h5>
-                        <ul className="list-none space-y-2">
-                            <li><a href="#!" className="text-gray-600 hover:underline">Link 1</a></li>
-                            <li><a href="#!" className="text-gray-600 hover:underline">Link 2</a></li>
-                            <li><a href="#!" className="text-gray-600 hover:underline">Link 3</a></li>
-                            <li><a href="#!" className="text-gray-600 hover:underline">Link 4</a></li>
-                        </ul>
-                    </div>
-                </div>
+          {/* Footer Links */}
+          {["Links", "More Links"].map((section, index) => (
+            <div key={index} className="md:w-1/4">
+              <h5 className="text-xl font-bold">{section}</h5>
+              <ul className="list-none space-y-2">
+                {Array(4)
+                  .fill(null)
+                  .map((_, i) => (
+                    <li key={i}>
+                      <a href="#!" className="text-gray-600 hover:underline">
+                        Link {i + 1}
+                      </a>
+                    </li>
+                  ))}
+              </ul>
             </div>
+          ))}
+        </div>
+      </div>
 
-            <div className="text-center py-4 bg-gray-200">
-                © 2024 Copyright || Built By 
-                <a className="text-blue-600 ml-1" href="https://ajwdev.netlify.app/">Ashtin Walter</a>
-            </div>
-        </footer>
-    );
+      {/* Copyright Section */}
+      <div className="text-center py-4 bg-gray-200">
+        © 2024 Muncharoo || Built by
+        <a className="text-blue-600 ml-1" href="https://ajwdev.netlify.app/" target="_blank" rel="noopener noreferrer">
+          Ashtin Walter
+        </a>
+      </div>
+    </footer>
+  );
 };
 
 export default Footer;

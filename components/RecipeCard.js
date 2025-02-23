@@ -8,7 +8,7 @@ export default function RecipeCard({ recipe }) {
       <CardHeader className="relative">
         <Image
           src={recipe.image_url}
-          alt={recipe.title}
+          alt={recipe.name}
           width={500}
           height={300}
           className="rounded-t-md object-cover"
@@ -16,7 +16,7 @@ export default function RecipeCard({ recipe }) {
         />
       </CardHeader>
       <CardContent className="p-4">
-        <CardTitle className="text-xl font-semibold">{recipe.title}</CardTitle>
+        <CardTitle className="text-xl font-semibold">{recipe.name}</CardTitle>
         <CardDescription className="text-sm text-gray-600 mt-2">
           {recipe.description}
         </CardDescription>

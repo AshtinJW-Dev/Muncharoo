@@ -11,7 +11,7 @@ export default function AllRecipes() {
   useEffect(() => {
     const fetchRecipes = async () => {
       try {
-        const response = await fetch("/muncharoo/api/recipes");
+        const response = await fetch("/api/recipes");
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);
         }

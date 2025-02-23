@@ -1,95 +1,79 @@
 import React from "react";
-
-import egg from "../public/assets/images/favicon.png";
-import { Input } from "@/components/ui/input"; // Adjust the path if needed
-import { Button } from "@/components/ui/button"; // Adjust the path if needed
-import Link from "next/link"
-
+import Image from "next/image";
+import { Input } from "@/components/ui/input";
+import { Button } from "@/components/ui/button";
 import {
   NavigationMenu,
-
   NavigationMenuItem,
   NavigationMenuLink,
   NavigationMenuList,
   navigationMenuTriggerStyle,
+} from "@/components/ui/navigation-menu";
 
-} from "@/components/ui/navigation-menu"
-import Image from "next/image"
+
+import egg from "../public/assets/images/favicon.png";
 
 export default function Navbar() {
   return (
-    <header className="bg-white shadow">
-      <div className="flex justify-between items-center p-4">
-        <div className="flex items-center d-flex flex-col">
-          <Image src={egg} width="80" height="80" alt="Logo" className="bg-danger rounded"/>
-          <h1 className="title-text">Muncharoo</h1>
-        </div>
-      
-        <div className="flex flex-grow mx-4">
-          <form className="flex flex-grow" role="search">
-            <Input
-              className="flex-grow border border-gray-300 rounded-l-md p-2"
-              type="search"
-              placeholder="Search"
-              aria-label="Search"
-            />
-            <Button variant="outline" type="submit" className="rounded-r-md p-2">
-              Search
-            </Button>
-          </form>
+    <header className="bg-white shadow-md">
+      <div className="flex justify-between items-center px-6 py-4">
+        {/* Logo */}
+        <div className="flex items-center space-x-3">
+          <Image src={egg} width={50} height={50} alt="Muncharoo Logo" />
+          <h1 className="text-2xl font-bold text-gray-800">Muncharoo</h1>
         </div>
 
-        <div className="flex space-x-4 text-gray-600">
-          <a href="#!" aria-label="Instagram">
-            <i className="bi bi-instagram text-2xl hover:text-blue-600"></i>
-          </a>
-          <a href="#!" aria-label="Facebook">
-            <i className="bi bi-facebook text-2xl hover:text-blue-600"></i>
-          </a>
-          <a href="#!" aria-label="Pinterest">
-            <i className="bi bi-pinterest text-2xl hover:text-blue-600"></i>
-          </a>
-          <a href="#!" aria-label="YouTube">
-            <i className="bi bi-youtube text-2xl hover:text-blue-600"></i>
-          </a>
-        </div>
+        {/* Search Bar */}
+        <form className="flex flex-grow max-w-lg mx-6" role="search">
+          <Input
+            type="search"
+            placeholder="Search recipes..."
+            className="flex-grow border-gray-300 rounded-l-md px-3 py-2"
+            aria-label="Search"
+          />
+          <Button variant="outline" type="submit" className="rounded-r-md px-4">
+            Search
+          </Button>
+        </form>
+
+        {/* Social Links */}
+        {/* <div className="flex space-x-4 text-gray-700">
+          <Link href="#!" aria-label="Instagram">
+            <Instagram className="w-6 h-6 hover:text-blue-500 transition-colors" />
+          </Link>
+          <Link href="#!" aria-label="Facebook">
+            <Facebook className="w-6 h-6 hover:text-blue-500 transition-colors" />
+          </Link>
+          <Link href="#!" aria-label="Pinterest">
+            <Pinterest className="w-6 h-6 hover:text-red-500 transition-colors" />
+          </Link>
+          <Link href="#!" aria-label="YouTube">
+            <Youtube className="w-6 h-6 hover:text-red-500 transition-colors" />
+          </Link>
+        </div> */}
       </div>
 
-      <NavigationMenu>
-        <NavigationMenuList>
-          <NavigationMenuItem >
-            <Link href="/my-munchies" legacyBehavior passHref>
-              <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-                My Munchies
-              </NavigationMenuLink>
-            </Link>
-          </NavigationMenuItem>
-          <NavigationMenuItem>
-            <Link href="/top-recipes" legacyBehavior passHref>
-              <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-                Top Recipes
-              </NavigationMenuLink>
-            </Link>
-          </NavigationMenuItem>
-
-          <NavigationMenuItem>
-
-            <Link href="/categories" legacyBehavior passHref>
-              <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-                Categories
-              </NavigationMenuLink>
-            </Link>
-          </NavigationMenuItem>
-          <NavigationMenuItem>
-            <Link href="/about" legacyBehavior passHref>
-              <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-                About
-              </NavigationMenuLink>
-            </Link>
-          </NavigationMenuItem>
-        </NavigationMenuList>
-      </NavigationMenu>
+      {/* Navigation Menu */}
+      <nav className="border-t border-gray-200">
+        <NavigationMenu className="flex justify-center py-3">
+          <NavigationMenuList className="flex space-x-6">
+            {[
+              { href: "/my-munchies", label: "My Munchies" },
+              { href: "/top-recipes", label: "Top Recipes" },
+              { href: "/categories", label: "Categories" },
+              { href: "/about", label: "About" },
+            ].map(({ href, label }) => (
+              <NavigationMenuItem key={href}>
+                
+                  <NavigationMenuLink href={href} className={navigationMenuTriggerStyle()}>
+                    {label}
+                  </NavigationMenuLink>
+                
+              </NavigationMenuItem>
+            ))}
+          </NavigationMenuList>
+        </NavigationMenu>
+      </nav>
     </header>
-
   );
 }

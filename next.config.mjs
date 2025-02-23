@@ -1,9 +1,12 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  basePath: '/muncharoo',
+  // basePath: '/muncharoo',
     images: {
-      domains: ['via.placeholder.com'], // Add this line
+      domains: ['placehold.co', 'www.themealdb.com'], // Add this line
+      dangerouslyAllowSVG: true, // Enable SVG support
     },
   }
+
+  
 export default nextConfig;
 
