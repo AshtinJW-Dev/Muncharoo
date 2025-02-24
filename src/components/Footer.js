@@ -2,7 +2,7 @@ import React from "react";
 import Image from "next/image";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-import egg from "../public/assets/images/favicon.png";
+import egg from "../../public/assets/images/favicon.png";
 
 const Footer = () => {
   return (

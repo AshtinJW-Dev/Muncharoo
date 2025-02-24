@@ -11,7 +11,7 @@ import {
 } from "@/components/ui/navigation-menu";
 
 
-import egg from "../public/assets/images/favicon.png";
+import egg from "../../public/assets/images/favicon.png";
 
 export default function Navbar() {
   return (

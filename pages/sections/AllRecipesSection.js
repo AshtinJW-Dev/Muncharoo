@@ -1,7 +1,7 @@
 // pages/index.js
 "use client";
 import { useEffect, useState } from "react";
-import RecipeCard from "../../components/RecipeCard";
+import RecipeCard from "../../src/components/RecipeCard";
 
 export default function AllRecipes() {
   const [recipes, setRecipes] = useState([]);
